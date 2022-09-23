@@ -1,13 +1,11 @@
+import Header from "./components/Header/Header";
 import styles from "./App.module.scss";
+import { Fragment } from "react";
 
 function App() {
-  return (
-    <div className={styles.app}>
-      <h1>Hello World</h1>
-      <p>A paragraph to test commit</p>
-      <p>A paragraph to test commit</p>
-    </div>
-  );
+  return <Fragment>
+    <Header/>
+  </Fragment>
 }
 
 export default App;

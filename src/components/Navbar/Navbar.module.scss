@@ -1,0 +1,15 @@
+@use '../../styles/vars' as *;
+
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 0;
+  background-color: $bg_color;
+
+  h1{
+    font-size: 4rem;
+    font-style: italic;
+    color:$primary_color;
+  }
+}

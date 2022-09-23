@@ -1,0 +1,32 @@
+@use '../../styles/vars' as *;
+
+.cart{
+  width: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: #237f52;
+  border-radius: 50%;
+  padding: 10px;
+  
+
+  img{
+    width: 60px;
+  }
+
+  h3{
+      font-size: 3rem;
+      font-style: italic;
+      font-weight: 400;
+  }
+  
+  span{
+      font-size: 2rem;
+      background-color: $bg_color_numbers;
+      border-radius: 50%;
+      padding: 10px;
+      color: $primary_color;
+  }
+}
+
