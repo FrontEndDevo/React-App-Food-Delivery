@@ -6,8 +6,8 @@ const Navbar = () => {
   return (
     <Fragment>
       <div className={styles.navbar}>
-        <h1>Foody</h1>
-        <Cart />
+      <p>Search</p>
+          <Cart />
       </div>
     </Fragment>
   );
