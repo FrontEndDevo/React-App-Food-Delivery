@@ -1,8 +1,43 @@
-@use '../../../styles/vars' as *;
+@use "../../../styles/vars" as *;
 
-.card{
+.card {
+  padding: 30px 40px;
+  background-color: $primary_color;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.3s;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-   padding: 1rem;
-   background-color: $primary_color;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  // When hover (div and it's children affect)
+  &:hover {
+    background-color: $bg_card_color;
+    img {
+      background-color: $primary_color;
+    }
+
+    button {
+      color: $primary_color;
+    }
+  }
+
+  img {
+    width: 60px;
+    background-color: $bg_card_color;
+    border-radius: 50%;
+    padding: 15px;
+    transition: 0.3s;
+  }
+
+  button {
+    color: $btn_color;
+    border: none;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    background-color: transparent;
+  }
 }
