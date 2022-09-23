@@ -1,9 +1,11 @@
-import './App.scss';
+import styles from './App.module.scss';
 
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <div className={styles.app}>
+      <h1>Hello World</h1>
+    </div>
   );
 }
 
