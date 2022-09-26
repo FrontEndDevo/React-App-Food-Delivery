@@ -1,21 +1,36 @@
+import { Fragment, useEffect, useState } from "react";
 import styles from "./ProductItem.module.scss";
-import FoodIcon from "../../../assets/Images/food.png";
-import cartIcon from "../../../assets/Images/cart.png";
-const ProductItem = () => {
-  return (
-    <div className={styles.product}>
-      <div className={styles["produt-items"]}>
-        <img src={FoodIcon} alt="" />
-        <div className={styles["product-card"]}>
-          <img src={cartIcon} alt="" />
-          <div className={styles["product-info"]}>
-            <h4>strawberry</h4>
-            <p>$ 10.5</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+
+const ProductItem = (props) => {
+  // States to mange data loading and errors
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const choosenCounrty = props.country;
+  // Fetch food data from (Firebase)
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+
+      const response = await fetch(
+        `https://food-delivery-b0655-default-rtdb.firebaseio.com/food/${choosenCounrty}.json`
+      );
+
+      if (!response.ok) throw new Error("Fetch food failed!");
+
+      const data = await response.json();
+      console.log(data);
+    };
+
+    try {
+      fetchData();
+      setIsLoading(false);
+    } catch (error) {
+      setError(error || "Something went wrong!");
+    }
+  }, [choosenCounrty]);
+
+  return <Fragment>FoodItems</Fragment>;
 };
 
 export default ProductItem;

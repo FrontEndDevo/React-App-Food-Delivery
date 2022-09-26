@@ -1,4 +1,5 @@
 @use "../../styles/vars" as *;
+
 .categories {
     text-align: center;
 
@@ -7,12 +8,11 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
-    margin-top: 4rem;
   }
 
   h5 {
     font-size: 2.5rem;
-    margin: 2rem 0 -2rem;
+    margin: 2rem 0;
     color: $main_titles;
   }
 }
