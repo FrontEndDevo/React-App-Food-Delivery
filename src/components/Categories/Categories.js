@@ -1,15 +1,23 @@
 import styles from "./Categories.module.scss";
 import Card from "../UI/Card/Card";
 
-import all from "../../assets/Images/all.png";
-import food from "../../assets/Images/food.png";
-import fruits from "../../assets/Images/fruits.png";
-import drinks from "../../assets/Images/drinks.png";
-import iceCream from "../../assets/Images/ice-creams.png";
+import China from "../../assets/Images/China.png";
+import Japan from "../../assets/Images/Japan.png";
+import Italy from "../../assets/Images/Italy.png";
+import Spain from "../../assets/Images/Spain.png";
+import France from "../../assets/Images/France.png";
+import Greece from "../../assets/Images/Greece.png";
 
 // Two arrays for handle the imported icons & their names
-const categoriesIcons = [all, food, fruits, drinks, iceCream];
-const categoriesNames = ["All", "Food", "Fruits", "Drinks", "Ice Cream"];
+const categoriesIcons = [China, Japan, Italy, Spain, France, Greece];
+const categoriesNames = [
+  "China",
+  "Japan",
+  "Italy",
+  "Spain",
+  "France",
+  "Greece",
+];
 
 const Categories = () => {
   // Mapping on icons array with getting the names.
@@ -20,7 +28,12 @@ const Categories = () => {
     </Card>
   ));
 
-  return <div className={styles.categories}>{categoriesBoxes}</div>;
+  return (
+    <div className={styles.categories}>
+      <h5>Choose your favorite type of food</h5>
+      <div className={styles["food-categories"]}>{categoriesBoxes}</div>
+    </div>
+  );
 };
 
 export default Categories;

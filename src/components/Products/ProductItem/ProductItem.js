@@ -1,11 +1,11 @@
 import styles from "./ProductItem.module.scss";
-import fruitIcon from "../../../assets/Images/f10.png";
+import FoodIcon from "../../../assets/Images/food.png";
 import cartIcon from "../../../assets/Images/cart.png";
 const ProductItem = () => {
   return (
     <div className={styles.product}>
       <div className={styles["produt-items"]}>
-        <img src={fruitIcon} alt="" />
+        <img src={FoodIcon} alt="" />
         <div className={styles["product-card"]}>
           <img src={cartIcon} alt="" />
           <div className={styles["product-info"]}>

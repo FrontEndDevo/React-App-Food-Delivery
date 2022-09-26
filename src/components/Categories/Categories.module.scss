@@ -1,8 +1,18 @@
 @use "../../styles/vars" as *;
 .categories {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  margin-top: 4rem;
+    text-align: center;
+
+  .food-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 4rem;
+  }
+
+  h5 {
+    font-size: 2.5rem;
+    margin: 2rem 0 -2rem;
+    color: $main_titles;
+  }
 }
