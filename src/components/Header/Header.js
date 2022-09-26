@@ -1,6 +1,7 @@
 import Navbar from "../Navbar/Navbar";
 import styles from "./Header.module.scss";
 import Landing from "../../assets/Images/landing-img.jpg";
+import RestaurantInfo from "../ResturantInfo/RestaurantInfo";
 const Header = () => {
   return (
     <header>
@@ -11,6 +12,7 @@ const Header = () => {
         </h1>
         <img src={Landing} alt="food-landing-img" />
       </div>
+      <RestaurantInfo />
     </header>
   );
 };
