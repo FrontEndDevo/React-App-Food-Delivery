@@ -2,17 +2,18 @@
 
 .categories {
     text-align: center;
-
+    
+      h5 {
+        font-size: 2.5rem;
+        margin: 2rem 0;
+        color: $main_titles;
+      }
+    
   .food-categories {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
-  }
 
-  h5 {
-    font-size: 2.5rem;
-    margin: 2rem 0;
-    color: $main_titles;
   }
 }

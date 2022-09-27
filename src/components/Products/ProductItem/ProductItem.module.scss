@@ -3,7 +3,7 @@
 .products {
   display: flex;
   flex-wrap: wrap;
-  width: 60vw;
+  width: 80vw;
   gap: 2rem;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@
   .food-box {
     background-color: $bg_color;
     display: flex;
-    width: calc(calc(60vw - 2rem) / 3);
+    width: calc(calc(80vw - 2rem) / 3);
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -21,17 +21,17 @@
     .food-info {
       color: $primary_color;
       h4{
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
       
       h6{
-        font-size: 0.7rem;
+        font-size:1rem;
         margin: 0.7rem 0;
       }
 
       span{
         color: #34bf49;
-        font-size: 0.5rem;
+        font-size: 1rem;
         font-weight: bold;
       }
     }
@@ -44,13 +44,14 @@
       align-items: center;
 
       input{
-        width: 3rem;
+        width: 3.5rem;
         max-width: 100%;
         padding: 0.5rem;
         border: none;
         border: 1px solid #cf8d2e;
         border-radius: 0.5rem;
         font-weight: bold;
+        font-size: 1.2rem;
         &:focus{
           outline: none;
         }

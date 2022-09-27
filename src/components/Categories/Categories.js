@@ -1,3 +1,4 @@
+import { Fragment, useState, useContext } from "react";
 import styles from "./Categories.module.scss";
 import Card from "../UI/Card/Card";
 import ProductItem from "../Products/ProductItem/ProductItem";
@@ -8,7 +9,7 @@ import Italy from "../../assets/Images/Italy.png";
 import Spain from "../../assets/Images/Spain.png";
 import France from "../../assets/Images/France.png";
 import Greece from "../../assets/Images/Greece.png";
-import { Fragment, useState } from "react";
+import FoodContext from "../../store/food-context";
 
 // Two arrays for handle the imported Food categories & their icons
 const categoriesIcons = [China, Japan, Italy, Spain, France, Greece];
@@ -22,9 +23,10 @@ const categoriesNames = [
 ];
 
 const Categories = () => {
-  const [country,setCountry]=useState('');
+  // This State to determine which country btn was clicked.
+  const [country, setCountry] = useState("");
 
-
+  
   const filterFoodHandler = (event, key) => {
     setCountry(categoriesNames[key]);
   };
@@ -33,7 +35,10 @@ const Categories = () => {
   const categoriesBoxes = categoriesIcons.map((icon, index) => (
     <Card>
       <img src={icon} alt="icon" />
-      <button onClick={(event) => filterFoodHandler(event,index)} type="button">
+      <button
+        onClick={(event) => filterFoodHandler(event, index)}
+        type="button"
+      >
         {categoriesNames[index]}
       </button>
     </Card>
