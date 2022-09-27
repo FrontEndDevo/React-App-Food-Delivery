@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import styles from "./ProductItem.module.scss";
+import classes from "./ProductItem.module.scss";
 
 const ProductItem = (props) => {
   // States to mange data loading and errors
@@ -7,6 +7,8 @@ const ProductItem = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const choosenCounrty = props.country;
+  const foodItems = {};
+
   // Fetch food data from (Firebase)
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +21,8 @@ const ProductItem = (props) => {
       if (!response.ok) throw new Error("Fetch food failed!");
 
       const data = await response.json();
+
+      // console.log(data);
       console.log(data);
     };
 
@@ -30,7 +34,22 @@ const ProductItem = (props) => {
     }
   }, [choosenCounrty]);
 
-  return <Fragment>FoodItems</Fragment>;
+  return (
+    <div className={classes.products}>
+      <div className={classes['food-box']}>
+            <div className={classes["food-info"]}>
+              <h4>foodName</h4>
+              <h6>foodType</h6>
+              <span>$12.5</span>
+            </div>
+
+            <div className={classes["add-to-cart"]}>
+              <input type="number" />
+              <button>+ Add</button>
+            </div>
+      </div>
+    </div>
+  );
 };
 
 export default ProductItem;

@@ -1,69 +1,75 @@
 @use "../../../styles/vars" as *;
 
-.product {
+.products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  width: 60vw;
+  gap: 2rem;
   align-items: center;
-  gap: 20px;
-  margin-top: 2rem;
-  .produt-items {
+  justify-content: center;
+  margin: 2rem auto;
+
+  .food-box {
+    background-color: $bg_color;
     display: flex;
+    width: calc(calc(60vw - 2rem) / 3);
     justify-content: space-between;
     align-items: center;
-    flex-direction: row-reverse;
-    gap: 10px;
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: $primary_color;
-    margin: 20px 10px;
-    transition: 0.5s;
+    padding: 1rem;
+    border-radius: 0.7rem;
 
-    &:hover {
-      background-color: #2e1f54;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
-    }
-  }
+    .food-info {
+      color: $primary_color;
+      h4{
+        font-size: 1rem;
+      }
+      
+      h6{
+        font-size: 0.7rem;
+        margin: 0.7rem 0;
+      }
 
-  img {
-    width: 50%;
-    height: 100%;
-  }
-
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
-
-    img {
-      width: 50px;
-      background-color: $bg_color_numbers;
-      border-radius: 50%;
-      padding: 12px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $alt_bg_color_numbers;
+      span{
+        color: #34bf49;
+        font-size: 0.5rem;
+        font-weight: bold;
       }
     }
 
-    .product-info {
+    .add-to-cart {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
 
-      h4 {
-        font-size: 1rem;
+      input{
+        width: 3rem;
+        max-width: 100%;
+        padding: 0.5rem;
+        border: none;
+        border: 1px solid #cf8d2e;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        &:focus{
+          outline: none;
+        }
+      }
+      
+      button{
+        padding: 0.25rem 0.5rem;
+        background-color: transparent;
         color: $primary_color;
+        text-transform: uppercase;
+        border: 1px solid #cf8d2e;
+        border-radius: 0.25rem;
+        transition: 0.5s;
+        &:hover{
+          background-color: #cf8d2e;
+
+        }
       }
 
-      p {
-        font-size: 1.5rem;
-        color: #009f4d;
-      }
     }
   }
 }
