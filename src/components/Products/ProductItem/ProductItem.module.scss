@@ -73,4 +73,28 @@
 
     }
   }
+
+  .no-items,
+  .loading,
+  .error{
+    background-color: $bg_color;
+    padding: 2rem 6rem ;
+    margin: 2rem 0 4rem;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  // Design error message
+  .error{
+    color: #ce181e;
+  }
+  // Design isLoding message
+  .loading{
+    color: #2c9f45;
+  }
+  // Design no-items message
+  .no-items{
+    color:$primary_color;
+  }
 }

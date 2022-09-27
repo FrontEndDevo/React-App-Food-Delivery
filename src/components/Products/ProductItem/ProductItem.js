@@ -38,7 +38,6 @@ const ProductItem = (props) => {
     }
   }, [foodCtx]);
 
-
   // Determine which country has been choosen.
   const countryFood = foodCtx.countries[props.country];
 
@@ -58,15 +57,26 @@ const ProductItem = (props) => {
       </div>
 
       <div className={classes["add-to-cart"]}>
-        <input type="number" />
+        <input type="number" max='20' min='1' value='1'/>
         <button>+ Add</button>
       </div>
     </div>
   ));
 
+  // Control which will be return below:
+  let content = (
+    <p className={classes["no-items"]}>There are no items right now.</p>
+  );
 
+  if (!error && isLoading)
+    content = <p className={classes["loading"]}>Loading items...</p>;
 
-  return <div className={classes.products}>{foodItems}</div>;
+  if (error && !isLoading)
+    content = <p className={classes["error"]}>{error}</p>;
+
+  if (foodItems.length > 0 && !isLoading && !error) content = foodItems;
+
+  return <div className={classes.products}>{content}</div>;
 };
 
 export default ProductItem;
