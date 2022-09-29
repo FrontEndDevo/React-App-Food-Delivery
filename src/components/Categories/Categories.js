@@ -1,8 +1,7 @@
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useState } from "react";
 import styles from "./Categories.module.scss";
 import Card from "../UI/Card/Card";
 import ProductItem from "../Products/ProductItem/ProductItem";
-
 
 const Categories = (props) => {
   // This State to determine which country btn was clicked.
@@ -11,7 +10,6 @@ const Categories = (props) => {
   // Receive icons & names via props
   const catIcons = props.icons;
   const catNames = props.names;
-  
 
   const filterFoodHandler = (event, key) => {
     setCountry(catNames[key]);

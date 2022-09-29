@@ -6,8 +6,10 @@ const Navbar = () => {
   return (
     <Fragment>
       <div className={styles.navbar}>
-      <p>Search</p>
-          <Cart />
+        <h1>
+          Foody <span>Restaurant</span>
+        </h1>
+        <Cart />
       </div>
     </Fragment>
   );

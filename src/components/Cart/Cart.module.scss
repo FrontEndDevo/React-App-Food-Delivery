@@ -1,38 +1,41 @@
-@use '../../styles/vars' as *;
+@use "../../styles/vars" as *;
 
-.cart{
+.cart {
   width: 15rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem;
   background-color: #237f52;
-  border-radius: 50%;
-  padding: 5px;
+  border-radius: 25px;
+  padding: 0.3rem 3rem;
   cursor: pointer;
   border: none;
   transition: 0.2s;
-  
-  &:hover{
-    background-color: #1db56b;
+
+  &:hover,
+  &:active {
+    background-color: #20cb79;
   }
 
-  img{
+  img {
     width: 40px;
   }
 
-  h3{
-      font-size: 2rem;
-      font-style: italic;
-      font-weight: 400;
+  h3 {
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 400;
   }
-  
-  span{
-      font-size: 1.3rem;
-      background-color: $bg_color_numbers;
-      border-radius: 50%;
-      padding: 10px;
-      color: $primary_color;
+
+  span {
+    font-size: 1.3rem;
+    background-color: $bg_color_numbers;
+    border-radius: 25px;
+    padding: 10px;
+    color: $primary_color;
+    font-weight: bold;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
   }
 }
-

@@ -7,9 +7,6 @@ const Header = () => {
     <header>
       <Navbar />
       <div className={styles.landing}>
-        <h1>
-          Foody <span>Restaurant</span>
-        </h1>
         <img src={Landing} alt="food-landing-img" />
       </div>
       <RestaurantInfo />

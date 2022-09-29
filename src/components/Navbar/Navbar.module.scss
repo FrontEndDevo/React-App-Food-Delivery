@@ -10,6 +10,15 @@
   width: 100%;
   z-index: 11;
 
+  h1 {
+    color: $primary_color;
+    font-style: italic;
+    font-size: 3rem;
+    user-select: none;
+    span {
+      font-size: 2rem;
+    }
+  }
 
   p{
     color: $primary_color;

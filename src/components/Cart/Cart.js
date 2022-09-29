@@ -1,7 +1,7 @@
+import { useContext } from 'react';
 import styles from './Cart.module.scss';
 import Icon from '../../assets/Images/delivery.png';
 import FoodContext from '../../store/food-context';
-import { useContext } from 'react';
 
 const Cart = (props) => {
   const foodCtx = useContext(FoodContext);

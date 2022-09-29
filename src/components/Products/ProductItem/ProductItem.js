@@ -3,6 +3,8 @@ import classes from "./ProductItem.module.scss";
 import FoodContext from "../../../store/food-context";
 
 const ProductItem = (props) => {
+  const [inputValue, setInputValue] = useState({});
+  const [isTouched, setIsTouched] = useState(false);
   //  using Context to store our food-data,
   //  so that we don't have to fetch it every re-rendered
   const foodCtx = useContext(FoodContext);
@@ -27,7 +29,7 @@ const ProductItem = (props) => {
     try {
       fetchData();
     } catch (error) {
-      throw new Error(error || "Something went wrong!");
+      console.log(error || "Something went wrong!");
     }
   }, [foodCtx]);
 
@@ -40,19 +42,41 @@ const ProductItem = (props) => {
     countriesArray.push(countryFood[key]);
   }
 
+  const changeInputHandler = (event, index) => {
+    setIsTouched(true);
+    setInputValue({ value: event.target.value, index });
+  };
+
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    console.log(countriesArray[inputValue.index]);
+    console.log(inputValue.value);
+    console.log(inputValue.index);
+    // setInputValue({ value: null, index: null });
+  };
+
   // Start Mapping and return the result below.
-  const foodItems = countriesArray.map((foodItem) => (
-    <div key={foodItem.foodPrice} className={classes["food-box"]}>
+  const foodItems = countriesArray.map((foodItem, index) => (
+    <div className={classes["food-box"]}>
       <div className={classes["food-info"]}>
         <h4>{foodItem.foodName}</h4>
         <h6>{foodItem.foodType}</h6>
         <span>{`$${foodItem.foodPrice}`}</span>
       </div>
 
-      <div className={classes["add-to-cart"]}>
-        <input type="number" max="20" min="1" value="1" />
-        <button>+ Add</button>
-      </div>
+      <form onSubmit={submitFormHandler} className={classes["add-to-cart"]}>
+        <input
+          key={index}
+          id={index}
+          type="number"
+          max="20"
+          min="1"
+          onChange={(event) => changeInputHandler(event, index)}
+        />
+        <button type="submit" disabled={!isTouched}>
+          + Add
+        </button>
+      </form>
     </div>
   ));
 
