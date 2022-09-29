@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import styles from "./Categories.module.scss";
 import Card from "../UI/Card/Card";
-import ProductItem from "../Products/ProductItem/ProductItem";
+import ProductFood from "../Products/ProductFood/ProductFood";
 
 const Categories = (props) => {
   // This State to determine which country btn was clicked.
@@ -34,7 +34,7 @@ const Categories = (props) => {
         <h5>Choose your favorite type of food</h5>
         <div className={styles["food-categories"]}>{categoriesBoxes}</div>
       </div>
-      <ProductItem country={country} />
+      <ProductFood country={country} />
     </Fragment>
   );
 };

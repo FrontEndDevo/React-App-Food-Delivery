@@ -1,8 +1,11 @@
 import { createContext } from "react";
 
 const FoodContext = createContext({
-  countries: [],
-  totalItems:0,
+  items: [],
+  totalItems: 0,
+  totalPrice: 0,
+  addItem: (item) => { },
+  deleteItem:(id)=>{},
 })
 
 export default FoodContext;

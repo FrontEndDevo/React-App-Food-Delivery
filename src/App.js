@@ -1,17 +1,16 @@
 import Header from "./components/Header/Header";
-import { Fragment } from "react";
 import Products from "./components/Products/Products";
-import styles from './App.module.scss';
-
+import styles from "./App.module.scss";
+import FoodProvider from "./store/food-provider";
 
 function App() {
   return (
-    <Fragment>
+    <FoodProvider>
       <div className={styles.app}>
         <Header />
         <Products />
       </div>
-    </Fragment>
+    </FoodProvider>
   );
 }
 
