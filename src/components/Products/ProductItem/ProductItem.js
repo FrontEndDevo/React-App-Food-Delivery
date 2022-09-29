@@ -3,10 +3,6 @@ import classes from "./ProductItem.module.scss";
 import FoodContext from "../../../store/food-context";
 
 const ProductItem = (props) => {
-  // States to mange data loading and errors
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
   //  using Context to store our food-data,
   //  so that we don't have to fetch it every re-rendered
   const foodCtx = useContext(FoodContext);
@@ -16,8 +12,6 @@ const ProductItem = (props) => {
   useEffect(() => {
     // Fetch food data from (Firebase)
     const fetchData = async () => {
-      setIsLoading(true);
-
       const response = await fetch(
         `https://food-delivery-b0655-default-rtdb.firebaseio.com/food.json`
       );
@@ -32,9 +26,8 @@ const ProductItem = (props) => {
 
     try {
       fetchData();
-      setIsLoading(false);
     } catch (error) {
-      setError(error || "Something went wrong!");
+      throw new Error(error || "Something went wrong!");
     }
   }, [foodCtx]);
 
@@ -57,26 +50,20 @@ const ProductItem = (props) => {
       </div>
 
       <div className={classes["add-to-cart"]}>
-        <input type="number" max='20' min='1' value='1'/>
+        <input type="number" max="20" min="1" value="1" />
         <button>+ Add</button>
       </div>
     </div>
   ));
 
-  // Control which will be return below:
-  let content = (
-    <p className={classes["no-items"]}>There are no items right now.</p>
+  return (
+    <div className={classes.products}>
+      {foodItems.length <= 0 && (
+        <p className={classes["no-items"]}>There are no items right now.</p>
+      )}
+      {foodItems.length > 0 && foodItems}
+    </div>
   );
-
-  if (!error && isLoading)
-    content = <p className={classes["loading"]}>Loading items...</p>;
-
-  if (error && !isLoading)
-    content = <p className={classes["error"]}>{error}</p>;
-
-  if (foodItems.length > 0 && !isLoading && !error) content = foodItems;
-
-  return <div className={classes.products}>{content}</div>;
 };
 
 export default ProductItem;
