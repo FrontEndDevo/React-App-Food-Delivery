@@ -1,4 +1,4 @@
-import Categories from "../Categories/Categories";
+import Categories from "../Products/Categories/Categories";
 import classes from "./Products.module.scss";
 
 // Importing Icons

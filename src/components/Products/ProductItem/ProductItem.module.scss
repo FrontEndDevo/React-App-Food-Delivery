@@ -1,3 +1,5 @@
+@use "../../../styles/vars.scss" as *;
+
 .food-box {
   background-color: $bg_color;
   display: flex;

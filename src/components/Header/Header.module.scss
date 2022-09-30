@@ -1,11 +1,6 @@
-@use "../../styles/vars" as *;
-
 .landing {
-  position: relative;
-  // margin-bottom: 2rem;
   img {
     width: 100vw;
-    // max-width: 99vw;
     height: 700px;
     object-fit: cover;
     transform: rotateZ(-8deg) scale(1.2);

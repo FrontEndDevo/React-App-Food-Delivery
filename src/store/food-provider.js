@@ -3,7 +3,6 @@ import FoodContext from "./food-context";
 
 const initialFood = {
   items: [],
-  totalItems: 0,
   totalPrice: 0,
 };
 
@@ -12,8 +11,6 @@ const foodReducer = (state, action) => {
     const updatedTotalPrice =
       state.totalPrice + action.item.price * action.item.amount;
 
-    const updatedTotalItems = state.totalItems + action.item.amount;
-    
     const existItemIndex = state.items.findIndex(
       (singleItem) => singleItem.id === action.item.id
     );
@@ -36,7 +33,6 @@ const foodReducer = (state, action) => {
 
     return {
       items: updatedItems,
-      totalItems:updatedTotalItems,
       totalPrice: updatedTotalPrice,
     };
   }
@@ -48,8 +44,6 @@ const foodReducer = (state, action) => {
     const existItem = state.items[existItemIndex];
 
     const updatedTotalPrice = state.totalPrice - existItem.price;
-
-    const updatedTotalItems = state.totalItems - 1;
 
     let updatedItems;
 
@@ -63,7 +57,6 @@ const foodReducer = (state, action) => {
 
     return {
       items: updatedItems,
-      totalItems: updatedTotalItems,
       totalPrice: updatedTotalPrice,
     };
   }
@@ -87,7 +80,6 @@ const FoodProvider = (props) => {
 
   const foodDetails = {
     items: foodProducts.items,
-    totalItems: foodProducts.totalItems,
     totalPrice: foodProducts.totalPrice,
     addItem: addItemToCartHandler,
     deleteItem: deleteItemFromCartHandler,

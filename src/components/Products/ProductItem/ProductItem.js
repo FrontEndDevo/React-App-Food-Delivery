@@ -15,7 +15,7 @@ const ProductItem = (props) => {
     });
   };
 
-  const price = `$${props.price.toFixed(2)}`;
+  const price = `$${props.price}`;
 
   return (
     <li className={classes["food-box"]}>

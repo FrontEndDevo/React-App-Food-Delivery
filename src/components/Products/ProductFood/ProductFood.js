@@ -4,23 +4,28 @@ import ProductItem from "../ProductItem/ProductItem";
 
 const ProductFood = (props) => {
   const [food, setFood] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // Get choosen country from props
+  const choosenCountry = props.country; // country name
+  const isUserChoose = props.isChooseCategory; // true or false
 
   useEffect(() => {
     // Fetch food data from (Firebase)
     const fetchData = async () => {
       setIsLoading(true);
       const response = await fetch(
-        `https://food-delivery-b0655-default-rtdb.firebaseio.com/food.json`
+        `https://food-delivery-b0655-default-rtdb.firebaseio.com/food/${choosenCountry}.json`
       );
 
-      if (!response.ok) throw new Error("Fetch food failed!");
-
+      if (!response.ok) {
+        throw new Error("Request Failed!");
+      }
       const data = await response.json();
 
       let loadedData = [];
-        // Handling fetched data and store data in an array.
+      // Handling fetched data and store data in an array.
       for (const key in data) {
         loadedData.push({
           id: data[key],
@@ -30,49 +35,25 @@ const ProductFood = (props) => {
         });
       }
       setFood(loadedData);
+      setIsLoading(false);
     };
 
-    try {
-      fetchData();
+    fetchData().catch((error) => {
+      setError(error.message || "Something went wrong!");
       setIsLoading(false);
-    } catch (error) {
-      setError(error || "Something went wrong!");
-    }
-  }, []);
+    });
+  }, [choosenCountry]);
 
-  // Determine which country has been choosen.
-  const choosenCountry = props.country;
-
-
-  const changeInputHandler = (event, index) => {
-    setInputValue({ value: event.target.value, index });
-  };
-
-  const submitFormHandler = (event) => {
-    event.preventDefault();
-    console.log(countriesArray[inputValue.index]);
-    console.log(inputValue.value);
-    console.log(inputValue.index);
-    // setInputValue({ value: null, index: null });
-  };
-
-
-
-  if (error)
+  if (!isUserChoose)
     return (
-      <div className={classes.products}>
-        <p className={classes["error"]}>{error}</p>;
-      </div>
+      <p className={classes["no-items"]}>There are no food items right now.</p>
     );
 
-  if (isLoading)
-    return (
-      <div className={classes.products}>
-        <p className={classes["loading"]}>Loading...</p>;
-      </div>
-    );
+  if (isLoading) return <p className={classes["loading"]}>Loading...</p>;
 
-  // Start Mapping and return the result below.
+  if (error) return <p className={classes["error"]}>{error}</p>;
+
+  // Start Mapping and push the result to ProductItem component.
   const foodItems = food.map((item) => (
     <ProductItem
       key={item.id}
@@ -83,14 +64,7 @@ const ProductFood = (props) => {
     />
   ));
 
-  if (foodItems.length <= 0)
-    return <p className={classes["no-items"]}>There are no items right now.</p>;
-
-  return (
-    <div className={classes.products}>
-      <ul>{foodItems}</ul>
-    </div>
-  );
+  return <ul className={classes.products}>{foodItems}</ul>;
 };
 
 export default ProductFood;

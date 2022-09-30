@@ -1,34 +1,34 @@
-@use "../../../styles/vars" as *;
-
+@use "../../../styles/vars.scss" as *;
 .products {
   display: flex;
-  flex-wrap: wrap;
   width: 80vw;
+  flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
   justify-content: center;
   margin: 2rem auto;
+}
 
-  .no-items,
-  .loading,
-  .error {
-    background-color: $bg_color;
-    padding: 2rem 6rem;
-    margin: 2rem 0 4rem;
-    font-weight: bold;
-    font-size: 2rem;
-    text-align: center;
-    color: $primary_color;
-  }
+.no-items,
+.loading,
+.error {
+  width: 40%;
+  border-radius: 4px;
+  background-color: $bg_color;
+  padding: 1rem 3rem;
+  margin: 2rem auto;
+  font-size: 2rem;
+  text-align: center;
+}
 
-  .loading{
-    color: $main_titles;
-  }
-  
-  .error{
-    color: $bg_card_color;
-  }
+.no-items {
+  color: $primary_color;
+}
 
+.loading {
+  color: $main_titles;
+}
 
-
+.error {
+  color: $bg_card_color;
 }
