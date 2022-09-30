@@ -1,0 +1,27 @@
+.food-box {
+  background-color: $bg_color;
+  display: flex;
+  width: calc(calc(80vw - 2rem) / 3);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.7rem;
+
+  .food-info {
+    color: $primary_color;
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    h6 {
+      font-size: 1rem;
+      margin: 0.7rem 0;
+    }
+
+    span {
+      color: #34bf49;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}

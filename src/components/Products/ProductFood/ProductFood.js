@@ -1,19 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./ProductFood.module.scss";
-import FoodContext from "../../../store/food-context";
+import ProductItem from "../ProductItem/ProductItem";
 
 const ProductFood = (props) => {
-  const [inputValue, setInputValue] = useState({});
-  const [isTouched, setIsTouched] = useState(false);
-  //  using Context to store our food-data,
-  //  so that we don't have to fetch it every re-rendered
-  const foodCtx = useContext(FoodContext);
+  const [food, setFood] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Here I used useEffect, because I will store the fetched data in Context,
-  // So I don't have to fetch the same data every re-evaluated.
   useEffect(() => {
     // Fetch food data from (Firebase)
     const fetchData = async () => {
+      setIsLoading(true);
       const response = await fetch(
         `https://food-delivery-b0655-default-rtdb.firebaseio.com/food.json`
       );
@@ -22,28 +19,32 @@ const ProductFood = (props) => {
 
       const data = await response.json();
 
-      // Assign data to our context.
-      foodCtx.countries = data;
+      let loadedData = [];
+        // Handling fetched data and store data in an array.
+      for (const key in data) {
+        loadedData.push({
+          id: data[key],
+          name: data[key].foodName,
+          type: data[key].foodType,
+          price: data[key].foodPrice,
+        });
+      }
+      setFood(loadedData);
     };
 
     try {
       fetchData();
+      setIsLoading(false);
     } catch (error) {
-      console.log(error || "Something went wrong!");
+      setError(error || "Something went wrong!");
     }
-  }, [foodCtx]);
+  }, []);
 
   // Determine which country has been choosen.
-  const countryFood = foodCtx.countries[props.country];
+  const choosenCountry = props.country;
 
-  // Convert the choosen country object to an array to map.
-  const countriesArray = [];
-  for (const key in countryFood) {
-    countriesArray.push(countryFood[key]);
-  }
 
   const changeInputHandler = (event, index) => {
-    setIsTouched(true);
     setInputValue({ value: event.target.value, index });
   };
 
@@ -55,39 +56,39 @@ const ProductFood = (props) => {
     // setInputValue({ value: null, index: null });
   };
 
-  // Start Mapping and return the result below.
-  const foodItems = countriesArray.map((foodItem, index) => (
-    <div className={classes["food-box"]}>
-      <div className={classes["food-info"]}>
-        <h4>{foodItem.foodName}</h4>
-        <h6>{foodItem.foodType}</h6>
-        <span>{`$${foodItem.foodPrice}`}</span>
-      </div>
 
-      <form onSubmit={submitFormHandler} className={classes["add-to-cart"]}>
-        <input
-          key={index}
-          id={index}
-          type="number"
-          min="1"
-          max="20"
-          step="1"
-          defaultValue="1"
-          onChange={(event) => changeInputHandler(event, index)}
-        />
-        <button type="submit" disabled={!isTouched}>
-          + Add
-        </button>
-      </form>
-    </div>
+
+  if (error)
+    return (
+      <div className={classes.products}>
+        <p className={classes["error"]}>{error}</p>;
+      </div>
+    );
+
+  if (isLoading)
+    return (
+      <div className={classes.products}>
+        <p className={classes["loading"]}>Loading...</p>;
+      </div>
+    );
+
+  // Start Mapping and return the result below.
+  const foodItems = food.map((item) => (
+    <ProductItem
+      key={item.id}
+      id={item.id}
+      name={item.name}
+      type={item.type}
+      price={item.price}
+    />
   ));
+
+  if (foodItems.length <= 0)
+    return <p className={classes["no-items"]}>There are no items right now.</p>;
 
   return (
     <div className={classes.products}>
-      {foodItems.length <= 0 && (
-        <p className={classes["no-items"]}>There are no items right now.</p>
-      )}
-      {foodItems.length > 0 && foodItems}
+      <ul>{foodItems}</ul>
     </div>
   );
 };
