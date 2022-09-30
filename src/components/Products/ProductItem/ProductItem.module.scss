@@ -1,4 +1,5 @@
 @use "../../../styles/vars.scss" as *;
+@use '../../../styles/mixins.scss' as *;
 
 .food-box {
   background-color: $bg_color;
@@ -13,6 +14,7 @@
     color: $primary_color;
     h4 {
       font-size: 1.5rem;
+      line-height: 1.5;
     }
 
     h6 {
@@ -25,5 +27,36 @@
       font-size: 1rem;
       font-weight: bold;
     }
+  }
+
+  @include responsive(tablet){
+  width: calc(calc(80vw - 2rem) / 2);
+  padding: 0.7rem 1rem;
+
+  .food-info {
+    h4 {
+      font-size: 1rem;
+    }
+
+    h6 {
+      font-size: 0.8rem;
+      margin: 0.5rem 0;
+    }
+  }
+  }
+
+  @include responsive(mobile){
+  width: calc(80vw - 2rem);
+
+  .food-info {
+    h4 {
+      font-size: 1rem;
+    }
+
+    h6 {
+      font-size: 0.8rem;
+      margin: 0.5rem 0;
+    }
+  }
   }
 }

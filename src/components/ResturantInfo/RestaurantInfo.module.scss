@@ -1,21 +1,22 @@
 @use "../../styles/vars" as *;
+@use "../../styles/mixins.scss" as *;
 
 .restaurant {
-  width: 40vw;
+  width: 50vw;
   background-color: $bg_color;
   border-radius: 1rem;
   padding: 1.5rem 1rem;
   text-align: center;
   color: $primary_color;
   position: relative;
-  transform: translate(70%, -70%);
+  transform: translate(50%, -70%);
   transition: 0.5s;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  
-  &:hover{
-    transform: translate(70%, -80%);
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+  &:hover {
+    transform: translate(50%, -90%);
   }
 
   h3 {
@@ -32,4 +33,42 @@
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
   }
+
+  @include responsive(tablet) {
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      margin: 0.5rem 0 1rem 0;
+      font-size: 1.3rem;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  @include responsive(mobile) {
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    h4 {
+      margin: 0.5rem 0 1rem 0;
+      font-size: 0.8rem;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+      font-size: 0.5rem;
+    }
+  }
+
+
 }

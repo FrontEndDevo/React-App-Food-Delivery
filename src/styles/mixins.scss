@@ -1,15 +1,21 @@
 @mixin responsive($device) {
   @if $device == tablet {
-    @media (min-width:768px) and (max-width:1200px) {
-      @content
-    }
-  }
-  
-  @if $device == mobile {
-    @media (max-width:767px) {
-      @content
+    @media (min-width: 768px) and (max-width: 1200px) {
+      @content;
     }
   }
 
+  @if $device == mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  
+
+  @if $device == hover {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
 
 }

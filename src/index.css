@@ -14,5 +14,13 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.app{
+     background-color: #f3f4f7; 
+}
+
+.products{
+  margin-top: -12rem;
 }

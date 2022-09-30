@@ -1,8 +1,22 @@
+@use "../../styles/mixins.scss" as *;
+
 .landing {
   img {
     width: 100vw;
     height: 700px;
     object-fit: cover;
     transform: rotateZ(-8deg) scale(1.2);
+  }
+
+  @include responsive(mobile) {
+    img {
+      height: 500px;
+    }
+  }
+
+  @include responsive(tablet) {
+    img {
+      height: 600px;
+    }
   }
 }

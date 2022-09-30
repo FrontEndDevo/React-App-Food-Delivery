@@ -1,4 +1,6 @@
 @use "../../../styles/vars.scss" as *;
+@use "../../../styles/mixins.scss" as *;
+
 .products {
   display: flex;
   width: 80vw;
@@ -6,17 +8,17 @@
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
 }
 
 .no-items,
 .loading,
 .error {
-  width: 40%;
+  width: 90vw;
   border-radius: 4px;
   background-color: $bg_color;
-  padding: 1rem 3rem;
-  margin: 2rem auto;
+  padding: 1rem;
+  margin: 2rem auto 0;
   font-size: 2rem;
   text-align: center;
 }
@@ -31,4 +33,20 @@
 
 .error {
   color: $bg_card_color;
+}
+
+@include responsive(tablet) {
+  .no-items,
+  .loading,
+  .error {
+    font-size: 1.5rem;
+  }
+}
+
+@include responsive(mobile) {
+  .no-items,
+  .loading,
+  .error {
+    font-size: 1rem;
+  }
 }

@@ -1,5 +1,4 @@
 import Categories from "../Products/Categories/Categories";
-import classes from "./Products.module.scss";
 
 // Importing Icons
 import China from "../../assets/Images/China.png";
@@ -23,7 +22,7 @@ const categoriesNames = [
 
 const Products = () => {
   return (
-    <div className={classes.products}>
+    <div className='products'>
       <Categories icons={categoriesIcons} names={categoriesNames} />
     </div>
   );

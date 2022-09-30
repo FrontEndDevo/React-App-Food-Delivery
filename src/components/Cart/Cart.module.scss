@@ -1,7 +1,8 @@
 @use "../../styles/vars" as *;
+@use "../../styles/mixins" as *;
 
 .cart {
-  width: 15rem;
+  width: 20rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,11 +12,13 @@
   padding: 0.3rem 3rem;
   cursor: pointer;
   border: none;
-  transition: 0.2s;
+  transition: $main_transition;
 
-  &:hover,
-  &:active {
-    background-color: #20cb79;
+  @include responsive(hover) {
+    &:hover,
+    &:active {
+      background-color: $cart_bg_color;
+    }
   }
 
   img {
@@ -37,5 +40,43 @@
     font-weight: bold;
     margin-left: 1rem;
     padding: 0.5rem 1rem;
+  }
+
+  @include responsive(tablet) {
+    width: 15rem;
+    background-color: $cart_bg_color;
+
+    img {
+      width: 35px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+    }
+
+    span {
+      font-size: 1.2rem;
+      margin-left: 0rem;
+    }
+  }
+
+  @include responsive(mobile) {
+    width: 12rem;
+    gap: 0.7rem;
+    padding: 0.2rem 3rem;
+    background-color: $cart_bg_color;
+
+    img {
+      width: 30px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    span {
+      font-size: 1rem;
+      margin-left: 0rem;
+    }
   }
 }
