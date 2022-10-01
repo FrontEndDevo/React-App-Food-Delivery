@@ -14,7 +14,9 @@ const AddProduct = (props) => {
     const enteredAmount = +amount;
 
     props.onAddToCart(enteredAmount);
+  
   };
+
 
   return (
     <form onSubmit={submitFormHandler} className={classes["add-to-cart"]}>

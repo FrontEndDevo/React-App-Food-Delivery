@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Cart from "../Cart/Cart";
+import CartBtn from "../Header/CartBtn/CartBtn";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
         <h1>
           Foody <span>Restaurant</span>
         </h1>
-        <Cart />
+        <CartBtn />
       </div>
     </Fragment>
   );

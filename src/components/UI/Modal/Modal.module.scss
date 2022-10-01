@@ -1,0 +1,23 @@
+@use "../../../styles/vars.scss" as *;
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1200;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal {
+  width: 50vw;
+  background-color: $bg_color;
+  z-index: 1500;
+  position: fixed;
+  top: 25vh;
+  transform: translateX(50%);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: $cart_bg_color 3px 3px 6px 0px inset,
+    $main_titles -3px -3px 6px 1px inset;
+}
