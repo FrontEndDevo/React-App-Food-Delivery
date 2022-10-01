@@ -6,11 +6,13 @@ import classes from "./ProductItem.module.scss";
 const ProductItem = (props) => {
   const ctx = useContext(FoodContext);
 
+  const totalAmount = ctx.totalPrice
+
   const addToCartHandler = (amount) => {
     ctx.addItem({
       id: props.id,
       name: props.name,
-      amount: amount,
+      amount,
       price: props.price,
     });
   };

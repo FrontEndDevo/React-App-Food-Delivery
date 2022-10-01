@@ -1,7 +1,24 @@
-.cart-items{
+@use '../../styles/vars' as *;
+
+.cart-content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: center;
-  justify-content: center;
+
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .total {
+    display: flex;
+      gap: 20px;
+    font-size: 2rem;
+    margin-left: auto;
+    color: $primary_color;
+    font-weight: bold;
+  }
 }

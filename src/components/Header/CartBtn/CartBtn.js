@@ -3,7 +3,7 @@ import styles from "./CartBtn.module.scss";
 import Icon from '../../../assets/Images/delivery.png';
 import FoodContext from '../../../store/food-context';
 
-const CartBtn = () => {
+const CartBtn = (props) => {
   const ctx = useContext(FoodContext);
   const { items } = ctx;
 
@@ -11,14 +11,14 @@ const CartBtn = () => {
   for (let i = 0; i < items.length; i++) {
     totalItems += items[i].amount;
   }
-  
-    return (
-      <button className={styles.cart}>
-        <img src={Icon} alt="delivery-icon" />
-        <h3>Cart</h3>
-        <span>{totalItems}</span>
-      </button>
-    );
+
+  return (
+    <button className={styles.cart} onClick={props.onClickCart}>
+      <img src={Icon} alt="delivery-icon" />
+      <h3>Cart</h3>
+      <span>{totalItems}</span>
+    </button>
+  );
 };
 
 export default CartBtn;
