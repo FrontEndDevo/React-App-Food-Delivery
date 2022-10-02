@@ -13,7 +13,7 @@ const App = () => {
 
   const onCloseHandler = () => {
     setShowCart(false);
-  }
+  };
 
   return (
     <FoodProvider>

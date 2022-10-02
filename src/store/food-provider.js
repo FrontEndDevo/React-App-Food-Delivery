@@ -2,15 +2,12 @@ import { useReducer } from "react";
 import FoodContext from "./food-context";
 
 const initialFood = {
-  items:[],
+  items: [],
   totalPrice: 0,
 };
 
 const foodReducer = (state, action) => {
   if (action.type === "ADD") {
-    const updatedTotalPrice =
-      state.totalPrice + action.item.price * action.item.amount;
-
     const existItemIndex = state.items.findIndex(
       (singleItem) => singleItem.id === action.item.id
     );
@@ -18,18 +15,34 @@ const foodReducer = (state, action) => {
     const existingItem = state.items[existItemIndex];
 
     let updatedItems;
-
+    let updatedItem;
+    let updatedTotalPrice =
+      state.totalPrice + (action.item.price * action.item.amount);
+    
     if (existingItem) {
-      const updatedItem = {
-        ...existingItem,
-        amount: existingItem.amount + action.item.amount,
-      };
+      if (existingItem.amount === action.item.amount) {
+        updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount + 1,
+        };
+        updatedTotalPrice = state.totalPrice + action.item.price;
+      } else {
+        updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount + action.item.amount,
+        };
+        updatedTotalPrice =
+          state.totalPrice + action.item.price * action.item.amount;
+      }
 
       updatedItems = [...state.items];
       updatedItems[existItemIndex] = updatedItem;
     } else {
       updatedItems = state.items.concat(action.item);
     }
+
+    // const updatedTotalPrice =
+    //   state.totalPrice + action.item.price * action.item.amount;
 
     return {
       items: updatedItems,
@@ -44,8 +57,6 @@ const foodReducer = (state, action) => {
 
     const existItem = state.items[existItemIndex];
 
-    const updatedTotalPrice = state.totalPrice - existItem.price;
-
     let updatedItems;
 
     if (existItem.amount === 1) {
@@ -55,6 +66,8 @@ const foodReducer = (state, action) => {
       updatedItems = [...state.items];
       updatedItems[existItemIndex] = updatedItem;
     }
+
+    const updatedTotalPrice = state.totalPrice - existItem.price;
 
     return {
       items: updatedItems,
