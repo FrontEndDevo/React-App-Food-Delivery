@@ -5,7 +5,6 @@ import classes from "./ProductItem.module.scss";
 
 const ProductItem = (props) => {
   const ctx = useContext(FoodContext);
-    console.log(ctx);
   // Finally add the item to cart.
   const addToCartHandler = (amount) => {
     ctx.addItem({

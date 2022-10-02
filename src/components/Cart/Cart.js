@@ -9,15 +9,24 @@ const Cart = (props) => {
 
   const totalPrice = `$${parseFloat(ctx.totalPrice).toFixed(2)}`;
 
+  const onAddItemHandler = (item) => {
+    ctx.addItem(item);
+  };
+  const onRemoveItemHandler = (id) => {
+    ctx.deleteItem(id)
+  }
+  
   const mainItems = (
-    <ul className={classes["cart-items"]}>
+    <ul>
       {ctx.items.map((item) => (
-      <CartItem
-        key={item.id}
-        name={item.name}
-        price={item.price}
-        amount={item.amount}
-      />
+        <CartItem
+          key={item.id}
+          name={item.name}
+          price={item.price}
+          amount={item.amount}
+          onAdd={onAddItemHandler.bind(null,item)}
+          onRemove={onRemoveItemHandler.bind(null,item.id)}
+        />
       ))}
     </ul>
   );
@@ -27,8 +36,8 @@ const Cart = (props) => {
         <div className={classes["cart-content"]}>
           {mainItems}
           <div className={classes.total}>
-            <span>Total Amount:</span>
-            <span>{totalPrice}</span>
+            <span>Total Amount :</span>
+            <span className={classes['total-price']}>{totalPrice}</span>
           </div>
         </div>
       </Modal>

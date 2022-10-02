@@ -2,38 +2,6 @@ import { useReducer } from "react";
 import FoodContext from "./food-context";
 
 const initialFood = {
-  // items: [
-  //   {
-  //     name: "Tomato Basil Soup",
-  //     price: 9.1,
-  //     amount:1,
-  //     id:"f1",
-  //   },
-  //   {
-  //     name: "4 piece Chicken Strips",
-  //     price: 99.4,
-  //     amount:1,
-  //     id:"f2",
-  //   },
-  //   {
-  //     name: "picy Southwest Salad",
-  //     price: 18.6,
-  //     amount:1,
-  //     id:"f3",
-  //   },
-  //   {
-  //     name: "Small Waffle Fries",
-  //     price: 62.7,
-  //     amount:1,
-  //     id:"f4",
-  //   },
-  //   {
-  //     name: "Sausage Egg and Cheese Biscuit",
-  //     price: 126.5,
-  //     amount:1,
-  //     id:"f5",
-  //   },
-  // ],
   items:[],
   totalPrice: 0,
 };

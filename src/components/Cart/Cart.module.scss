@@ -1,24 +1,37 @@
-@use '../../styles/vars' as *;
+@use "../../styles/vars" as *;
 
 .cart-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  padding: 1rem;
+  max-height: 40rem;
+  overflow: auto;
 
-  .cart-items {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    justify-content: center;
+  // Customize cart scrollbar
+  &::-webkit-scrollbar {
+    width: 20px;
+    &-track {
+      border-radius: 10px;
+    }
+
+    &-thumb {
+      background: linear-gradient(to bottom, #5433FF, #20BDFF,#A5FECB);
+      border-radius: 10px;
+    }
   }
 
   .total {
     display: flex;
-      gap: 20px;
+    margin: 0.5rem;
+    margin-right: auto;
+    gap: 20px;
     font-size: 2rem;
-    margin-left: auto;
     color: $primary_color;
     font-weight: bold;
+
+    .total-price {
+      font-weight: normal;
+      color: $cart_bg_color;
+    }
   }
 }

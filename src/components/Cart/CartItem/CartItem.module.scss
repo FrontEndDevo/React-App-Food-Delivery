@@ -5,12 +5,16 @@
   justify-content: space-between;
   align-items: center;
   color: $primary_color;
+  &:not(&:first-child){
+  border-top: 1px solid $bg_color_numbers;
+  }
   
   .item-info{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     font-weight: bold;
+    margin: 1rem 0;
 
     .name{
       font-size: 2rem;
@@ -22,19 +26,26 @@
 
     .price-item{
       font-size: 1rem;
-      color: $main_titles;
+      color: $border_color;
     }
   }
 
   .actions{
     display: flex;
     gap: 2rem;
-    padding: 1rem;
-    background-color:$bg_color_numbers ;
-    transition: $main_transition;
+    margin-right: 1rem;
     button{
-     &:hover{
-       background-color: $alt_bg_color_numbers;
+      transition: $main_transition;
+      background-color:$main_titles ;
+      padding: 0.3rem 1rem;
+      font:2rem bold;
+      color: $primary_color;
+      border: none;
+      border-radius: 0.5rem;
+      outline: none;
+     &:hover,
+     &:active{
+       background-color: $secondary_titles;
       }
     }
   }
