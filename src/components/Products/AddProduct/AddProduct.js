@@ -11,10 +11,9 @@ const AddProduct = (props) => {
   const submitFormHandler = (event) => {
     event.preventDefault();
 
-    const enteredAmount = +amount;
+    const enteredAmount = parseInt(amount);
 
     props.onAddToCart(enteredAmount);
-  
   };
 
 

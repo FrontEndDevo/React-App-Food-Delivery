@@ -1,14 +1,14 @@
-import styles from './CartItem.module.scss';
+import styles from "./CartItem.module.scss";
 
-const CartItem = props => {
-
-  const priceItem = `$${props.price}/item`;
+const CartItem = (props) => {
+  const priceItem = `$${parseFloat(props.price).toFixed(2)}/item`;
 
   return (
     <li className={styles["cart-item"]}>
       <div className={styles["item-info"]}>
-        <span className={styles.name}>{props.name}</span>
+        <h3 className={styles.name}>{props.name}</h3>
         <span className={styles["price-item"]}>{priceItem}</span>
+        <span className={styles.amount}>x {props.amount}</span>
       </div>
       <div className={styles.actions}>
         <button>-</button>
@@ -16,6 +16,6 @@ const CartItem = props => {
       </div>
     </li>
   );
-}
+};
 
 export default CartItem;

@@ -5,19 +5,18 @@ import classes from "./ProductItem.module.scss";
 
 const ProductItem = (props) => {
   const ctx = useContext(FoodContext);
-
-  const totalAmount = ctx.totalPrice
-
+    console.log(ctx);
+  // Finally add the item to cart.
   const addToCartHandler = (amount) => {
     ctx.addItem({
       id: props.id,
       name: props.name,
-      amount,
       price: props.price,
+      amount,
     });
   };
 
-  const price = `$${props.price}`;
+  const price = `$${parseFloat(props.price).toFixed(2)}`;
 
   return (
     <li className={classes["food-box"]}>
