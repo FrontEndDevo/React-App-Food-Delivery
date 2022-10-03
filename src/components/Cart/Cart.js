@@ -14,6 +14,10 @@ const Cart = (props) => {
     setOrder(true);
   };
 
+  const onCancelOrder = () => {
+    setOrder(false);
+  };
+
   const totalPrice = `$${parseFloat(ctx.totalPrice).toFixed(2)}`;
 
   const onAddItemHandler = (item) => {
@@ -58,7 +62,7 @@ const Cart = (props) => {
             )}
           </div>
         </div>
-        {order && <Checkout />}
+        {order && <Checkout onCancel={onCancelOrder} />}
       </div>
     </Modal>
   );

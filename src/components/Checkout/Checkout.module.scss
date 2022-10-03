@@ -1,40 +1,74 @@
-@use '../../styles/vars' as *;
+@use "../../styles/vars" as *;
 
-.form-checkout{
+.form-checkout {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  border: 2px solid $secondary_titles;
-  margin:3rem 0 0.5rem;
+  border: 2px solid $btn_color;
+  margin: 3rem 0 0.5rem;
   padding: 1.5rem;
   color: $primary_color;
   font: 1.5rem bold;
-  .input-box{
+
+  .input-boxes {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+    .input-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      input {
+        margin-left: 1rem;
+        width: 35vw;
+        height: 30px;
+        padding: 1.3rem 1rem;
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: $primary_color;
+        outline: none;
+        border: 2px solid $input_color;
+        border-radius: 5px;
+        caret-color: $main_titles;
+        transition: $main_transition;
+
+        // border: 1px solid $cart_bg_color;
+        &:focus {
+          box-shadow: $input_color 3px 2px 10px 0px,
+            $input_color 3px 2px 10px 0px;
+        }
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 4rem;
 
-    label{
-
+    button {
+      font-size: 1.2rem;
+      padding: 0.8rem 2.5rem;
+      border-radius: 6px;
+      background-color: transparent;
+      cursor: pointer;
+      color: $primary_color;
+      transition: $main_transition;
     }
 
-    input{
-      margin-left: 1rem;
-      width: 35vw;
-      height: 30px;
-      padding: 1.3rem 1rem;
-      font-size: 1.5rem;
-      background-color: transparent;
-      color: $primary_color;
-      outline: none;
-      border: 2px solid #004D40;
-      border-radius: 5px;
-      caret-color: $main_titles;
-      transition: $main_transition;
+    .cancel {
+      border: 1px solid $bg_card_color;
+      &:hover {
+        background-color: $bg_card_color;
+      }
+    }
 
-      // border: 1px solid $cart_bg_color;
-      &:focus{
-        box-shadow: #004D40 3px 2px 10px 0px, #004D40 3px 2px 10px 0px;
+    .confirm {
+      border: 1px solid $secondary_titles;
+      &:hover {
+        background-color: $secondary_titles;
       }
     }
   }
