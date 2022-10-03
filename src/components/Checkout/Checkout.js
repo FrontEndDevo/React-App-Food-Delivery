@@ -1,8 +1,16 @@
 import classes from "./Checkout.module.scss";
 
 const Checkout = (props) => {
+
+
+  const submitOrderHandler = event => {
+    event.preventDefault();
+    console.log(event);
+    
+  }
+
   return (
-    <form className={classes["form-checkout"]}>
+    <form className={classes["form-checkout"]} onSubmit={submitOrderHandler}>
       <div className={classes["input-boxes"]}>
         <div className={classes["input-box"]}>
           <label htmlFor="name">Full Name</label>
