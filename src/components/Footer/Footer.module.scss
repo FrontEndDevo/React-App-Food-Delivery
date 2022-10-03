@@ -1,0 +1,20 @@
+@use "../../styles/vars" as *;
+
+.footer {
+  margin-top: 5rem;
+  background-color: $bg_color;
+  color: $primary_color;
+  padding: 0.1rem 0;
+  text-align: center;
+  h5 {
+    margin: 1rem 0;
+    span {
+      font-size: 1.2rem;
+      color: $border_color;
+    }
+  }
+
+  h6 {
+    margin: 1rem 0 0.5rem;
+  }
+}
