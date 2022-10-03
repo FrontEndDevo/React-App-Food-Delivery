@@ -15,23 +15,56 @@
     }
 
     &-thumb {
-      background: linear-gradient(to bottom, #5433FF, #20BDFF,#A5FECB);
+      background: linear-gradient(to bottom, #5433ff, #20bdff, #a5fecb);
       border-radius: 10px;
     }
   }
 
-  .total {
+  .details {
     display: flex;
-    margin: 0.5rem;
-    margin-right: auto;
-    gap: 20px;
-    font-size: 2rem;
-    color: $primary_color;
-    font-weight: bold;
+    align-items: center;
 
-    .total-price {
-      font-weight: normal;
-      color: $cart_bg_color;
+    .total {
+      display: flex;
+      margin: 0.5rem;
+      margin-right: auto;
+      gap: 20px;
+      font-size: 2rem;
+      color: $primary_color;
+      font-weight: bold;
+
+      .total-price {
+        font-weight: normal;
+        color: $cart_bg_color;
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 2rem;
+
+      button {
+        font-size: 1.2rem;
+        padding: 0.8rem 2.5rem;
+        border-radius: 6px;
+        background-color: transparent;
+        cursor: pointer;
+        color: $primary_color;
+        transition: $main_transition;
+      }
+      .close {
+        border: 1px solid $bg_card_color;
+        &:hover {
+          background-color: $bg_card_color;
+        }
+      }
+
+      .order {
+        border: 1px solid $secondary_titles;
+        &:hover {
+          background-color: $secondary_titles;
+        }
+      }
     }
   }
 }

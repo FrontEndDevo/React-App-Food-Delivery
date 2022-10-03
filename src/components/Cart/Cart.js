@@ -13,9 +13,9 @@ const Cart = (props) => {
     ctx.addItem(item);
   };
   const onRemoveItemHandler = (id) => {
-    ctx.deleteItem(id)
-  }
-  
+    ctx.deleteItem(id);
+  };
+
   const mainItems = (
     <ul>
       {ctx.items.map((item) => (
@@ -24,24 +24,31 @@ const Cart = (props) => {
           name={item.name}
           price={item.price}
           amount={item.amount}
-          onAdd={onAddItemHandler.bind(null,item)}
-          onRemove={onRemoveItemHandler.bind(null,item.id)}
+          onAdd={onAddItemHandler.bind(null, item)}
+          onRemove={onRemoveItemHandler.bind(null, item.id)}
         />
       ))}
     </ul>
   );
 
-  
   return (
-      <Modal onClose={props.onClose}>
-        <div className={classes["cart-content"]}>
-          {mainItems}
+    <Modal onClose={props.onClose}>
+      <div className={classes["cart-content"]}>
+        {mainItems}
+        <div className={classes.details}>
           <div className={classes.total}>
             <span>Total Amount :</span>
-            <span className={classes['total-price']}>{totalPrice}</span>
+            <span className={classes["total-price"]}>{totalPrice}</span>
+          </div>
+          <div className={classes.actions}>
+            <button className={classes.close} onClick={props.onClose}>
+              Close
+            </button>
+            <button className={classes.order}>Order</button>
           </div>
         </div>
-      </Modal>
+      </div>
+    </Modal>
   );
 };
 
