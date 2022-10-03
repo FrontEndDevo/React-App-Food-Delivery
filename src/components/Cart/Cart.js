@@ -1,11 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Modal from "../UI/Modal/Modal";
 import classes from "./Cart.module.scss";
 import FoodContext from "../../store/food-context";
 import CartItem from "./CartItem/CartItem";
+import Checkout from "../Checkout/Checkout";
 
 const Cart = (props) => {
   const ctx = useContext(FoodContext);
+  const isCtxHave = ctx.items.length !== 0;
+  const [order, setOrder] = useState(false);
+
+  const orderFoodHandler = () => {
+    setOrder(true);
+  };
 
   const totalPrice = `$${parseFloat(ctx.totalPrice).toFixed(2)}`;
 
@@ -44,9 +51,14 @@ const Cart = (props) => {
             <button className={classes.close} onClick={props.onClose}>
               Close
             </button>
-            <button className={classes.order}>Order</button>
+            {isCtxHave && (
+              <button className={classes.order} onClick={orderFoodHandler}>
+                Order
+              </button>
+            )}
           </div>
         </div>
+        {order && <Checkout />}
       </div>
     </Modal>
   );
