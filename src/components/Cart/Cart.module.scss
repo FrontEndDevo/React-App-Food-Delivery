@@ -89,6 +89,10 @@
   }
 
   @include responsive(mobile) {
+    &::-webkit-scrollbar{
+      display: none;
+    }
+    
     .details {
       flex-direction: column;
       margin: 0 auto;

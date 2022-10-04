@@ -1,53 +1,108 @@
-@use '../../../styles/vars' as *;
+@use "../../../styles/vars" as *;
+@use "../../../styles/mixins" as *;
 
-.cart-item{
+.cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: $primary_color;
-  &:not(&:first-child){
-  border-top: 1px solid $bg_color_numbers;
+  &:not(&:first-child) {
+    border-top: 1px solid $bg_color_numbers;
   }
-  
-  .item-info{
+
+  .item-info {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     font-weight: bold;
     margin: 1rem 0;
 
-    .name{
+    .name {
       font-size: 2rem;
     }
-    
-    .amount{
+
+    .amount {
       font-size: 1.5rem;
     }
 
-    .price-item{
+    .price-item {
       font-size: 1rem;
       color: $border_color;
     }
   }
 
-  .actions{
+  .actions {
     display: flex;
     gap: 2rem;
-    margin-right: 1rem;
-    button{
+    button {
       transition: $main_transition;
-      background-color:$main_titles ;
+      background-color: $main_titles;
       padding: 0.3rem 1rem;
-      font:2rem bold;
+      font: 2rem bold;
       color: $primary_color;
       border: none;
       border-radius: 0.5rem;
       outline: none;
-     &:hover,
-     &:active{
-       background-color: $secondary_titles;
+      &:hover,
+      &:active {
+        background-color: $secondary_titles;
       }
     }
   }
 
+  @include responsive(tablet) {
+    margin-bottom: 2rem;
+    .item-info {
+      .name {
+        font-size: 1.5rem;
+      }
+
+      .amount {
+        font-size: 1.5rem;
+      }
+
+      .price-item {
+        font-size: 1rem;
+        color: $border_color;
+      }
+    }
+
+    .actions {
+      flex-direction: column-reverse;
+      margin-bottom: auto;
+      margin-top: 1rem;
+      button {
+        transition: none;
+        background-color: $secondary_titles;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+
+  @include responsive(mobile) {
+    flex-direction: column;
+    padding-bottom: 2rem;
+
+    .item-info {
+      text-align: center;
+
+      .name {
+        font-size: 1.2rem;
+      }
+
+      .amount {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .actions {
+      flex-direction: column-reverse;
+      button {
+        transition: none;
+        background-color: $secondary_titles;
+        padding: 0.2rem 1rem;
+      }
+    }
+  }
 }

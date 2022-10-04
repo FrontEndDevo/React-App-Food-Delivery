@@ -7,7 +7,9 @@ import Checkout from "../Checkout/Checkout";
 
 const Cart = (props) => {
   const ctx = useContext(FoodContext);
+  // For display Order Btn.
   const isCtxHave = ctx.items.length !== 0;
+
   // To know when the order btn should display.
   const [order, setOrder] = useState(false);
 
