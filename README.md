@@ -10,7 +10,7 @@ You can simply see our latest meals and choose what you want.
 The food will be prepared for you and delivered to you as soon as possible to enjoy a delicious and cheap lunch or dinner.
 
 Technologies Used:
-Reactjs & SASS
+Reactjs & SASS, I used Firebase as a dummy backend, I also used useContext react hook to store data, and some other hooks to build this app.
 
 Status: Completed.
 
