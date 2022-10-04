@@ -14,6 +14,7 @@ Reactjs & SASS
 
 Status: Completed.
 
+Here are some snapshots from the application (from desktop only, but ofcourse, the app is responsive).
 
 <img src="https://user-images.githubusercontent.com/98362185/193806473-09cc8fc6-900c-4f4b-9385-86d732c7a31b.png" width="800" height="600">
 <img src="https://user-images.githubusercontent.com/98362185/193809999-ff79b96c-21e1-48ec-9af4-081565e4f87f.png" width="800" height="600">
