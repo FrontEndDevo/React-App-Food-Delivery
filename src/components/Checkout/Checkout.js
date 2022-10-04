@@ -1,10 +1,10 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import classes from "./Checkout.module.scss";
 
 const initialInputStates = {
   name: "",
   address: "",
-  number: 0,
+  number: "",
   isNameValid: false,
   isAddressValid: false,
   isNumberValid: false,
@@ -39,6 +39,9 @@ const inputReducersFn = (state, action) => {
         isNumberTouched: action.isValueTouched,
       };
 
+    case "RESET":
+      return initialInputStates;
+
     default:
       return { ...state };
   }
@@ -47,7 +50,10 @@ const inputReducersFn = (state, action) => {
 const Checkout = (props) => {
   const [inputs, dispatch] = useReducer(inputReducersFn, initialInputStates);
 
-  // Disable paste in input fields.
+  // This state for display order food successfully
+  const [isOrderSuccess, setIsOrderSuccess] = useState(false);
+
+  // Disable copy & cut & paste in input fields.
   const onCopyAndPasteDisableHandler = (event) => {
     event.preventDefault();
   };
@@ -60,6 +66,7 @@ const Checkout = (props) => {
     const isValueValid = value.trim() !== "";
     // Dispatch the action
     dispatch({ type: "NAME", value, isValueValid, isValueTouched });
+    setIsOrderSuccess(false);
   };
 
   const onChangeAddressHandler = (event) => {
@@ -69,6 +76,7 @@ const Checkout = (props) => {
     const isValueValid = value.length >= 5;
     // Dispatch the action
     dispatch({ type: "ADDRESS", value, isValueValid, isValueTouched });
+    setIsOrderSuccess(false);
   };
 
   const onChangeNumberHandler = (event) => {
@@ -78,27 +86,40 @@ const Checkout = (props) => {
     const isValueValid = !isNaN(value) && value.length !== 0;
     // Dispatch the action
     dispatch({ type: "NUMBER", value, isValueValid, isValueTouched });
+    setIsOrderSuccess(false);
   };
 
   // FORM SUBMMITION
   const submitOrderHandler = (event) => {
     event.preventDefault();
 
-    if (inputs.isNameValid && inputs.isAddressValid && inputs.isNumberValid)
+    // Check everything, then we could send data to server/database
+    if (inputs.isNameValid && inputs.isAddressValid && inputs.isNumberValid) {
+      setIsOrderSuccess(true);
+      dispatch({ type: "RESET" });
+
       // Here we can send user data to backend, there is no problem.
       console.log(inputs);
+    }
   };
 
   // Valid value messages:
   const nameValidation = inputs.isNameTouched && !inputs.isNameValid && (
-    <p className={classes.isValid}>Please enter a valid full name.</p>
+    <p className={classes.isValid}>Please enter a valid full name!</p>
   );
   const addressValidation = inputs.isAddressTouched &&
     !inputs.isAddressValid && (
-      <p className={classes.isValid}>Please enter your address in detail.</p>
+      <p className={classes.isValid}>Please enter your address in detail!</p>
     );
   const numberValidation = inputs.isNumberTouched && !inputs.isNumberValid && (
-    <p className={classes.isValid}>Please enter a valid phone nubmer.</p>
+    <p className={classes.isValid}>Please enter a valid phone nubmer!</p>
+  );
+
+  // Check if the order was success
+  const successfulOrder = isOrderSuccess && (
+    <p className={classes.successfully}>
+      The order was successfully completed.
+    </p>
   );
 
   return (
@@ -110,6 +131,7 @@ const Checkout = (props) => {
             type="text"
             name="username"
             id="name"
+            value={inputs.name}
             onChange={onChangeNameHandler}
             onPaste={onCopyAndPasteDisableHandler}
             onCopy={onCopyAndPasteDisableHandler}
@@ -125,6 +147,7 @@ const Checkout = (props) => {
             type="text"
             name="useraddress"
             id="address"
+            value={inputs.address}
             onChange={onChangeAddressHandler}
             onPaste={onCopyAndPasteDisableHandler}
             onCopy={onCopyAndPasteDisableHandler}
@@ -140,6 +163,7 @@ const Checkout = (props) => {
             type="text"
             name="usernumber"
             id="phone"
+            value={inputs.number}
             onChange={onChangeNumberHandler}
             onPaste={onCopyAndPasteDisableHandler}
             onCopy={onCopyAndPasteDisableHandler}
@@ -155,6 +179,7 @@ const Checkout = (props) => {
         </button>
         <button className={classes.confirm}>Confirm</button>
       </div>
+      {successfulOrder}
     </form>
   );
 };
