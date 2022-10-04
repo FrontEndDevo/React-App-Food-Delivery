@@ -10,8 +10,8 @@ You can simply see our latest meals and choose what you want.
 The food will be prepared for you and delivered to you as soon as possible to enjoy a delicious and cheap lunch or dinner.
 
 Screenshots:
-<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://user-images.githubusercontent.com/98362185/193806473-09cc8fc6-900c-4f4b-9385-86d732c7a31b.png" width="250" height="250">
-![1](https://user-images.githubusercontent.com/98362185/193806473-09cc8fc6-900c-4f4b-9385-86d732c7a31b.png =250x250)
+<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://user-images.githubusercontent.com/98362185/193806473-09cc8fc6-900c-4f4b-9385-86d732c7a31b.png" width="500" height="500">
+
 ![2](https://user-images.githubusercontent.com/98362185/193806577-375f9fac-2284-4132-a382-c43f6f61e9ff.png)
 ![3](https://user-images.githubusercontent.com/98362185/193806629-42b4bd48-2906-427b-b9e1-13630095f9cc.png)
 ![4](https://user-images.githubusercontent.com/98362185/193806674-c53d4ff2-9672-46fc-b61a-59083fe98fa4.png)
@@ -29,4 +29,4 @@ Screenshots:
 Technologies Used:
 Reactjs & SASS
 
-Status: In progress.
+Status: Completed.
