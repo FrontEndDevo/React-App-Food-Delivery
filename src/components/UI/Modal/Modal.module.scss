@@ -1,4 +1,5 @@
-@use "../../../styles/vars.scss" as *;
+@use "../../../styles/vars" as *;
+@use "../../../styles/mixins" as *;
 .backdrop {
   position: fixed;
   top: 0;
@@ -20,4 +21,10 @@
   padding: 1rem;
   box-shadow: $cart_bg_color 3px 3px 6px 0px inset,
     $main_titles -3px -3px 6px 1px inset;
+
+  @include responsive(mobile) {
+    width: 90vw;
+    top: 15vh;
+    transform: translateX(5%);
+  }
 }

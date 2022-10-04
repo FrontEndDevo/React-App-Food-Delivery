@@ -85,6 +85,7 @@ const Checkout = (props) => {
             onChange={onChangeNameHandler}
             onPaste={onCopyAndPasteDisableHandler}
             onCopy={onCopyAndPasteDisableHandler}
+            onCut={onCopyAndPasteDisableHandler}
             autoComplete="off"
           />
         </div>
@@ -98,6 +99,7 @@ const Checkout = (props) => {
             onChange={onChangeAddressHandler}
             onPaste={onCopyAndPasteDisableHandler}
             onCopy={onCopyAndPasteDisableHandler}
+            onCut={onCopyAndPasteDisableHandler}
             autoComplete="off"
           />
         </div>
@@ -111,6 +113,7 @@ const Checkout = (props) => {
             onChange={onChangeNumberHandler}
             onPaste={onCopyAndPasteDisableHandler}
             onCopy={onCopyAndPasteDisableHandler}
+            onCut={onCopyAndPasteDisableHandler}
             autoComplete="off"
           />
         </div>
