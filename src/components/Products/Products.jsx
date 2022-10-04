@@ -1,4 +1,4 @@
-import Categories from "../Products/Categories/Categories";
+import Categories from "./Categories/Categories";
 
 // Importing Icons
 import China from "../../assets/Images/China.png";
