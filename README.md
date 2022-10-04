@@ -1,4 +1,3 @@
-Project Title:
 # Food ordering and delivery
 
 Demo Link: https://food-delivery-b0655.web.app
