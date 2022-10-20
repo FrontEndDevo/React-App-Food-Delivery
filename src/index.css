@@ -15,10 +15,14 @@ html {
   overflow-x: hidden;
 }
 
-.app{
-     background-color: #f3f4f7; 
+.app {
+  background-color: #f3f4f7;
 }
 
-.products{
+.products {
   margin-top: -12rem;
+}
+
+img {
+  -webkit-user-drag: none;
 }

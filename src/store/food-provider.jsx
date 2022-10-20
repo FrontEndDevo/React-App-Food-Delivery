@@ -17,8 +17,8 @@ const foodReducer = (state, action) => {
     let updatedItems;
     let updatedItem;
     let updatedTotalPrice =
-      state.totalPrice + (action.item.price * action.item.amount);
-    
+      state.totalPrice + action.item.price * action.item.amount;
+
     if (existingItem) {
       if (existingItem.amount === action.item.amount) {
         updatedItem = {
